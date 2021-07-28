@@ -1,5 +1,7 @@
 // To use this simply include the js file on your page and call the AJAXHelper the following way
-AJAXHelper.ajax({
+var ajaxHelper = new AJAXHelper();
+
+ajaxHelper.ajax({
     contentType: "application/json",
     method: "GET",
     data: yourDataToSend,
