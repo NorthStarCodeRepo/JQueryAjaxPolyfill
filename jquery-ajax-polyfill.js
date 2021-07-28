@@ -1,5 +1,6 @@
 /**
  * Helper class to be used like jQuery ajax method on old devices.
+ * https://github.com/NorthStarCodeRepo/JQueryAjaxPolyfill
  * */
  var AJAXHelper = function () { };
 
