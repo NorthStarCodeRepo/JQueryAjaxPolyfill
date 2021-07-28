@@ -1,5 +1,5 @@
 /**
- * Helper class to be used like jQuery ajax method on old devices.
+ * Helper class to be used like jQuery ajax method on old devices where JQuery may not be available.
  * https://github.com/NorthStarCodeRepo/JQueryAjaxPolyfill
  * */
  var AJAXHelper = function () { };
@@ -7,13 +7,11 @@
  /**
   * A jQuery ajax style method for async requests.
   * https://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
-  * @param {contentType, method, data, URL} requestObject - jQuery-like ajax [settings] object.
+  * @param {contentType, method, data, URL, success, error} requestObject - jQuery-like ajax [settings] object.
   * {data} must be of type: string, please serialize prior to passing to this method.
-  * @param {successCallback} successCallback - Handles a successful request.
-  * @param {failureCallback} failureCallback - Handles a failed request.
   * @returns {void}
   */
-  AJAXHelper.prototype.ajax = function (requestObject, successCallback, failureCallback)
+  AJAXHelper.prototype.ajax = function (requestObject)
  {
      var httpRequest;
  
@@ -30,7 +28,7 @@
  
      if (!httpRequest)
      {
-         failureCallback('Oops, please try again.');
+         requestObject.error('Oops, please try again.');
          return false;
      }
  
@@ -42,21 +40,21 @@
              // Our response from the server. String data, typically.
              var response = httpRequest.responseText;
  
-             if (httpRequest.status === 200)
+             if (httpRequest.status === 200) // Request succeeded.
              {
-                 successCallback(response);
+                requestObject.success(response);
              }
              else if (httpRequest.status === 204) // No data returned, but successful.
              {
-                 successCallback(true);
+                requestObject.success(true);
              }
-             else if (httpRequest.status != 500 || httpRequest.status != 404)
+             else if (httpRequest.status != 500 || httpRequest.status != 404) // Internal server error or page not found.
              {
-                 successCallback(true);
+                requestObject.error(httpRequest.status);
              }
              else
              {
-                 failureCallback(httpRequest.status);
+                requestObject.error(httpRequest.status);
              }
          }
      };
