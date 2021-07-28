@@ -50,7 +50,7 @@
              }
              else if (httpRequest.status != 500 || httpRequest.status != 404) // Internal server error or page not found.
              {
-                requestObject.error(httpRequest.status);
+                requestObject.error("Internal server error or page not found.");
              }
              else
              {
