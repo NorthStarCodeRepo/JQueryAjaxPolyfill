@@ -14,6 +14,7 @@
   AJAXHelper.prototype.ajax = function (requestObject)
  {
      var httpRequest;
+     requestObject.async = requestObject.async || true; // async is optional, if not set default to true
  
      if (window.XMLHttpRequest)
      {
