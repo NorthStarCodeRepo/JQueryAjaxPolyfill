@@ -9,7 +9,7 @@
   * https://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
   * @param requestObject - {contentType, method, data, url, async, success, error} requestObject - jQuery-like ajax [settings] object.
   * {data} must be of type: string, please serialize prior to passing to this method.
-  * @returns {void}
+  * @returns { boolean }
   */
   AJAXHelper.prototype.ajax = function (requestObject)
  {
