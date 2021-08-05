@@ -7,7 +7,7 @@
  /**
   * A jQuery ajax style method for async requests.
   * https://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
-  * @param requestObject - {contentType, method, data, url, async, success, error} requestObject - jQuery-like ajax [settings] object.
+  * @param requestObject - {contentType, method, data, url, async, success, error} **Make sure they are all camelCase when set.
   * {data} must be of type: string, please serialize prior to passing to this method.
   * @returns { boolean }
   */
