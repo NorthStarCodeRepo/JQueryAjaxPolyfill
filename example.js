@@ -5,7 +5,8 @@ ajaxHelper.ajax({
     contentType: "application/json",
     method: "GET",
     data: yourDataToSend,
-    URL: "api/yourendpoint",
+    url: "api/yourendpoint",
+    async: true,
     success: successCallback,
     error: errorCallback
 });
@@ -15,7 +16,8 @@ $.ajax({
     contentType: "application/json",
     method: "GET",
     data: yourDataToSend,
-    URL: "api/yourendpoint",
+    url: "api/yourendpoint",
+    async: true,
     success: successCallback,
     error: errorCallback
 });

@@ -7,7 +7,7 @@
  /**
   * A jQuery ajax style method for async requests.
   * https://api.jquery.com/jquery.ajax/#jQuery-ajax-settings
-  * @param {contentType, method, data, URL, success, error} requestObject - jQuery-like ajax [settings] object.
+  * @param requestObject - {contentType, method, data, url, async, success, error} requestObject - jQuery-like ajax [settings] object.
   * {data} must be of type: string, please serialize prior to passing to this method.
   * @returns {void}
   */
@@ -60,7 +60,7 @@
          }
      };
  
-     httpRequest.open(requestObject.method, requestObject.URL, true);
+     httpRequest.open(requestObject.method, requestObject.url, requestObject.async);
      httpRequest.setRequestHeader('Content-Type', requestObject.contentType);
  
      if (requestObject.method == 'POST')
